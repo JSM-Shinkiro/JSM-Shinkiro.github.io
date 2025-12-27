@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jose "Shinkiro" Salinas — ECE, CS &amp; AI</title>
+  <meta name="description" content="Electrical & Computer Engineering student with AI and semiconductor focus. Hardware-Software projects, resume, and contact info." />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-alt: #030712;
+      --card: #020617;
+      --border: #1f2937;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.1);
+      --danger: #f97373;
+      --radius-lg: 1.25rem;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.6);
+      --shadow-subtle: 0 8px 20px rgba(15, 23, 42, 0.8);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1120, #020617 55%);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      padding-top: 72px; /* for fixed nav */
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* NAVBAR */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.75), transparent);
+      border-bottom: 1px solid rgba(31, 41, 55, 0.7);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 2px solid rgba(56, 189, 248, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.18), transparent);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-title span:first-child {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-title span:last-child {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      padding: 0.4rem 0.6rem;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s, transform 0.1s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(15, 23, 42, 0.85);
+      transform: translateY(-1px);
+    }
+
+    .nav-cta {
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.8);
+      padding: 0.3rem 0.9rem;
+      font-size: 0.83rem;
+      color: var(--accent);
+      background: rgba(8, 47, 73, 0.4);
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.35);
+    }
+
+    /* SECTIONS GENERIC */
+    section {
+      padding: 4.5rem 0;
+    }
+
+    section:nth-of-type(even) {
+      background: radial-gradient(circle at top left, #020617, #030712);
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+    }
+
+    /* HERO */
+    .hero {
+      padding-top: 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3.2fr) minmax(0, 2.1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      padding: 0.18rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.6);
+      background: rgba(8, 47, 73, 0.45);
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.5);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 3vw, 2.7rem);
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .tagline {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 38rem;
+      line-height: 1.6;
+      margin-bottom: 1.4rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.78rem;
+    }
+
+    .chip {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+      margin-bottom: 1.1rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.65rem 1.3rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform 0.1s, box-shadow 0.1s, background 0.1s;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: #0b1120;
+      box-shadow: 0 14px 30px rgba(34, 197, 94, 0.6);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(34, 197, 94, 0.75);
+    }
+
+    .btn-outline {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(75, 85, 99, 0.95);
+      color: var(--muted);
+    }
+
+    .btn-outline:hover {
+      transform: translateY(-1px);
+      background: rgba(15, 23, 42, 0.99);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.09), rgba(15, 23, 42, 0.98));
+      border-radius: 1.4rem;
+      padding: 1.2rem 1.3rem 1.2rem;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .pill {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-card-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .metric {
+      padding: 0.6rem 0.7rem;
+      border-radius: 0.9rem;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .metric-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .metric-value {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .hero-card-footer {
+      border-top: 1px dashed rgba(55, 65, 81, 0.8);
+      padding-top: 0.8rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* HIGHLIGHTS */
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .highlight-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .highlight-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+    }
+
+    .highlight-tags span {
+      padding: 0.18rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--muted);
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .project-card {
+      background: rgba(15, 23, 42, 0.98);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      align-items: baseline;
+    }
+
+    .project-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .project-type {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .project-bullets {
+      padding-left: 1rem;
+      margin: 0.3rem 0 0.4rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .project-bullets li {
+      margin-bottom: 0.2rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      font-size: 0.74rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-tags span {
+      padding: 0.18rem 0.45rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      color: var(--muted);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: auto;
+      font-size: 0.78rem;
+    }
+
+    .project-links a {
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.95);
+      transition: background 0.1s, transform 0.1s;
+    }
+
+    .project-links a:hover {
+      background: rgba(31, 41, 55, 0.95);
+      transform: translateY(-1px);
+    }
+
+    /* EXPERIENCE & SKILLS */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.98);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .experience-item + .experience-item {
+      border-top: 1px dashed rgba(55, 65, 81, 0.8);
+      padding-top: 0.7rem;
+      margin-top: 0.7rem;
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.7rem;
+      font-size: 0.84rem;
+    }
+
+    .experience-role {
+      font-weight: 600;
+    }
+
+    .experience-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .experience-body {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+
+    .skill-groups {
+      display: grid;
+      gap: 0.7rem;
+      font-size: 0.8rem;
+    }
+
+    .skill-group-title {
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .skill-group-body {
+      color: var(--muted);
+    }
+
+    /* COURSEWORK & CONTACT */
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .pill-row span {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.98);
+      color: var(--muted);
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+      font-size: 0.86rem;
+    }
+
+    .contact-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-list a {
+      color: var(--accent);
+    }
+
+    footer {
+      padding: 1.5rem 0 2rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .highlight-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 3.2rem 0;
+      }
+
+      body {
+        padding-top: 64px;
+      }
+
+      .nav {
+        height: 64px;
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <div class="nav-left">
+          <div class="logo-circle">JS</div>
+          <div class="nav-title">
+            <span>Engineering Portfolio</span>
+            <span>Jose "Shinkiro" Salinas</span>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#coursework">Coursework</a>
+          <a href="#contact" class="nav-cta">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">ECE • CS • Hardware • Software • Systems • AI • Semiconductors</div>
+        <h1>Jose “Shinkiro” Salinas Hardware–Software Engineer Focused on Real Systems</h1>
+        <p class="tagline">
+          Electrical &amp; Computer Engineering student with a minor focus in Computer Science and AI.
+          I build real systems end-to-end — from pipelined CPUs and custom PCBs to machine-learning
+          models and Internet-scale data analysis. Actively seeking internships in hardware, software,
+          computer architecture, and AI-adjacent roles.
+        </p>
+
+        <div class="chips">
+          <span class="chip">Verilog &amp; Computer Architecture</span>
+          <span class="chip">AI / ML with PyTorch</span>
+          <span class="chip">Semiconductors &amp; Photolithography</span>
+          <span class="chip">Networking &amp; Internet Topology</span>
+        </div>
+
+        <div class="hero-actions">
+          <!-- TODO: replace href with your actual resume pdf link -->
+          <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">
+            Download Resume (PDF)
+          </a>
+          <a class="btn btn-outline" href="#projects">See Engineering Work</a>
+          <a class="btn btn-outline" href="mailto:JOSESALINASMEZA@OUTLOOK.COM">
+            Contact Me
+          </a>
+        </div>
+        <div class="hero-note">
+          Based in Arizona • Open to relocation • Actively recruiting for Summer 2026 engineering internships
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Profile summary">
+        <div class="hero-card-header">
+          <div>
+            <div class="hero-card-title">Engineering Snapshot</div>
+            <div class="hero-card-subtitle" style="font-size:0.8rem; color:var(--muted);">
+              What you get if you hire me
+            </div>
+          </div>
+          <div class="pill">ECE • CS • AI</div>
+        </div>
+
+        <div class="hero-card-metrics">
+          <div class="metric">
+            <div class="metric-label">Primary Focus</div>
+            <div class="metric-value">Hardware, Software, AI, Systems</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Engineering Strengths</div>
+            <div class="metric-value">Hands-on, fast learner, team-oriented</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Seeking Roles In</div>
+            <div class="metric-value">Internships, HW/SW/ML roles</div>
+          </div>
+        </div>
+
+        <div class="hero-card-footer">
+          Comfortable jumping between Verilog, Python, and data analysis.
+          Comfortable owning ambiguous, real-world problems at the
+          hardware–software boundary.
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section id="highlights">
+    <div class="container">
+      <h2 class="section-title">What I’m Good At</h2>
+      <p class="section-subtitle">The core technical areas where I consistently deliver results.</p>
+
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <h3>Hardware &amp; Computer Architecture</h3>
+          <p>
+            I design and debug digital systems: pipelined MIPS CPUs, datapaths, hazard units,
+            and low-level timing, hazards, and correctness under real constraints.
+          </p>
+          <div class="highlight-tags">
+            <span>Verilog / Vivado</span>
+            <span>MIPS pipeline</span>
+            <span>FPGA</span>
+          </div>
+        </div>
+
+        <div class="highlight-card">
+          <h3>AI, ML &amp; Data</h3>
+          <p>
+            I implement and compare models, analyze embeddings, and build plots that actually
+            explain why models behave the way they do — not just report accuracy.
+          </p>
+          <div class="highlight-tags">
+            <span>PyTorch</span>
+            <span>scikit-learn</span>
+            <span>Word embeddings</span>
+          </div>
+        </div>
+
+        <div class="highlight-card">
+          <h3>Semiconductors &amp; Systems</h3>
+          <p>
+            From photolithography process research to Internet-scale AS relationship analysis,
+            I care about systems thinking — from semiconductor physics to global networks.
+          </p>
+          <div class="highlight-tags">
+            <span>Semiconductor processing</span>
+            <span>Networking</span>
+            <span>Python tools</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Selected Projects</h2>
+      <p class="section-subtitle">Selected projects that demonstrate how I design, debug, and reason about complex systems.</p>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <div class="project-header">
+            <div class="project-title">5-Stage MIPS Pipeline CPU</div>
+            <div class="project-type">Computer Architecture</div>
+          </div>
+          <p class="project-desc">
+            Implemented a fully pipelined MIPS-like CPU including hazard detection, forwarding,
+            and pipeline registers (IF/ID/EX/MEM/WB).
+          </p>
+          <ul class="project-bullets">
+            <li>Designed datapath and control logic based on course spec and lab requirements.</li>
+            <li>Implemented hazard detection and forwarding to handle data and control hazards.</li>
+            <li>Verified correctness through unit tests and waveform inspection in Vivado.</li>
+          </ul>
+          <div class="project-tags">
+            <span>Verilog</span>
+            <span>Vivado</span>
+            <span>Computer Architecture</span>
+          </div>
+          <div class="project-links">
+            <!-- Replace # with actual links when you have them -->
+            <a href="#" target="_blank" rel="noopener">Source Code</a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div class="project-header">
+            <div class="project-title">Audio Power Amplifier PCB</div>
+            <div class="project-type">Analog &amp; PCB Design</div>
+          </div>
+          <p class="project-desc">
+            Designed and simulated a multi-stage audio amplifier including op-amp preamp, voltage
+            regulation, and push-pull output stage, then laid out a custom PCB.
+          </p>
+          <ul class="project-bullets">
+            <li>Used TL071 op-amp, LM317 regulators, and discrete BJTs for output stage.</li>
+            <li>Simulated gain, bandwidth, and distortion; verified stability and thermal limits.</li>
+            <li>Designed PCB in Eagle/KiCad with attention to grounding and layout.</li>
+          </ul>
+          <div class="project-tags">
+            <span>Analog circuits</span>
+            <span>PCB Design</span>
+            <span>SPICE</span>
+          </div>
+          <div class="project-links">
+            <a href="#" target="_blank" rel="noopener">Schematic (soon)</a>
+            <a href="#" target="_blank" rel="noopener">PCB Layout (soon)</a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <div class="project-header">
+            <div class="project-title">Neural Nets vs Naive Bayes</div>
+            <div class="project-type">Machine Learning</div>
+          </div>
+          <p class="project-desc">
+            Compared several neural network architectures against a Naive Bayes baseline across
+            multiple datasets, with detailed analysis of overfitting and learning curves.
+          </p>
+          <ul class="project-bullets">
+            <li>Implemented Small/Medium/Large networks in PyTorch with training/validation loops.</li>
+            <li>Tracked best validation model and compared to “dumb” baselines (most-common class).</li>
+            <li>Plotted loss and accuracy across epochs to reason about capacity and regularization.</li>
+          </ul>
+          <div class="project-tags">
+            <span>PyTorch</span>
+            <span>scikit-learn</span>
+            <span>Matplotlib</span>
+          </div>
+          <div class="project-links">
+            <a href="#" target="_blank" rel="noopener">Source Code</a>
+            <a href="#" target="_blank" rel="noopener">Write-up (soon)</a>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card">
+          <div class="project-header">
+            <div class="project-title">Internet AS Topology &amp; Customer Cones</div>
+            <div class="project-type">Network Systems</div>
+          </div>
+          <p class="project-desc">
+            Parsed AS relationship datasets and routeviews dumps to build provider-to-customer maps
+            and compute customer cones for Internet-scale analysis.
+          </p>
+          <ul class="project-bullets">
+            <li>Loaded large AS-relationship files, filtered p2c links, and built graph structures.</li>
+            <li>Propagated customer sets via BFS/DFS to compute customer cones efficiently.</li>
+            <li>Explored how connectivity and hierarchy affect routing and resilience.</li>
+          </ul>
+          <div class="project-tags">
+            <span>Python</span>
+            <span>Graphs</span>
+            <span>Networking</span>
+          </div>
+          <div class="project-links">
+            <a href="#" target="_blank" rel="noopener">Source Code</a>
+            <a href="#" target="_blank" rel="noopener">Slides (soon)</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE & SKILLS -->
+  <section id="experience">
+    <div class="container two-col">
+      <!-- Experience -->
+      <div>
+        <h2 class="section-title">Engineering Experience</h2>
+        <p class="section-subtitle">Project-based engineering experience with real constraints, deadlines, and team coordination.</p>
+
+        <div class="card">
+          <div class="experience-item">
+            <div class="experience-header">
+              <div>
+                <div class="experience-role">Computer Architecture Project — Datapath &amp; Hazards</div>
+                <div class="experience-meta">ECE 369A — Computer Organization</div>
+              </div>
+              <div class="experience-meta">Team of 3</div>
+            </div>
+            <div class="experience-body">
+              Co-designed a pipelined MIPS-like CPU; owned hazard detection, forwarding logic, and
+              debugging pipeline interactions using simulation. Worked closely with teammates to
+              divide modules and integration testing.
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-header">
+              <div>
+                <div class="experience-role">Networking &amp; Wireless Simulations</div>
+                <div class="experience-meta">ECE 478 — Internet &amp; Networking</div>
+              </div>
+              <div class="experience-meta">Team of 2</div>
+            </div>
+            <div class="experience-body">
+              Implemented CSMA/CA simulations with hidden terminals, RTS/CTS logic, collision
+              detection, throughput and fairness metrics. Analyzed how parameter changes affected
+              collisions at different nodes.
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-header">
+              <div>
+                <div class="experience-role">Dual-Axis Self Adjusting Solar Panel</div>
+                <div class="experience-meta">ECE 372A — Microprocessor Organization</div>
+              </div>
+              <div class="experience-meta">Team of 2</div>
+            </div>
+            <div class="experience-body">
+              Designed and built a solar panel system that tracks the sun using light sensors
+              and a microcontroller. Divided hardware and software tasks, collaborated on testing
+              and debugging.
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-header">
+              <div>
+                <div class="experience-role">AI &amp; Data Science Coursework</div>
+                <div class="experience-meta">ECE 470 • CSC 296 • CSC 380</div>
+              </div>
+              <div class="experience-meta">Python / Jupyter</div>
+            </div>
+            <div class="experience-body">
+              Built models, tuned hyperparameters, and wrote detailed reports that explain not just
+              “what the accuracy was” but why the model behaved that way, using plots, baselines,
+              and careful interpretation.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div id="skills">
+        <h2 class="section-title">Skills &amp; Tech Stack</h2>
+        <p class="section-subtitle">Tools and technologies I use to build, test, and ship systems.</p>
+          
+        <div class="card">
+          <div class="skill-groups">
+            <div>
+              <div class="skill-group-title">Languages</div>
+              <div class="skill-group-body">
+                English (fluent), Spanish (native)
+              </div>
+            </div>
+            <div>
+              <div class="skill-group-title">Software Development</div>
+              <div class="skill-group-body">
+                Python, C/C++, Java, Verilog, MATLAB, MIPS assembly, HTML/CSS, Object Oriented Programming
+              </div>
+            </div>
+            <div>
+              <div class="skill-group-title">Hardware &amp; ECE</div>
+              <div class="skill-group-body">
+                Verilog (Vivado), FPGA boards, SPICE (LTspice/PSPICE), PCB design (Eagle/KiCad),
+                oscilloscopes, multimeters, Arduino
+              </div>
+            </div>
+            <div>
+              <div class="skill-group-title">AI, ML &amp; Data</div>
+              <div class="skill-group-body">
+                PyTorch, scikit-learn, NumPy, Matplotlib, pandas, Jupyter notebooks
+              </div>
+            </div>
+            <div>
+              <div class="skill-group-title">Systems &amp; Tools</div>
+              <div class="skill-group-body">
+                Git, GitHub, Linux, VSCode, basic shell scripting, LaTeX/technical writing
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSEWORK & CONTACT -->
+  <section id="coursework">
+    <div class="container two-col">
+      <div>
+        <h2 class="section-title">Coursework &amp; Academics</h2>
+        <p class="section-subtitle">Coursework that directly informs my engineering decisions and design tradeoffs.</p>
+
+        <div class="card">
+          <div style="font-size:0.85rem; margin-bottom:0.6rem;">
+            <strong>Key Coursework</strong>
+          </div>
+          <div class="pill-row" style="margin-bottom:0.9rem;">
+            <span>Computer Architecture</span>
+            <span>Electronic Circuits / Integrated Circuits</span>
+            <span>Microprocessor Organization</span>
+            <span>AI / Machine Learning</span>
+            <span>Data Science / Deep Learning</span>
+            <span>Internet &amp; Networking</span>
+            <span>Semiconductor Processing / Manufacturing</span>
+            <span>Linear Algebra</span>
+          </div>
+          <div style="font-size:0.85rem; color:var(--muted);">
+          </div>
+        </div>
+      </div>
+
+      <div id="contact">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">If you’re hiring engineers who can move between hardware, software, and AI — let’s talk.</p>
+
+        <div class="card">
+          <ul class="contact-list">
+            <li><strong>Email:</strong> <a href="mailto:JOSESALINASMEZA@OUTLOOK.COM">JOSESALINASMEZA@OUTLOOK.COM</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/JSM-Shinkiro" target="_blank" rel="noopener">linkedin.com/in/JSM-Shinkiro</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/JSM-Shinkiro" target="_blank" rel="noopener">github.com/JSM-Shinkiro</a></li>
+            <li><strong>Location:</strong> Arizona, USA</li>
+            <li><strong>Availability:</strong> Internships starting Summer 2026</li>
+          </ul>
+          <p style="font-size:0.8rem; color:var(--muted); margin-top:0.8rem;">
+            I’m targeting roles at the intersection of hardware, software, AI, and high-performance systems,
+            including computer architecture, accelerators, verification, and applied ML.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; <span id="year"></span> Jose “Shinkiro” Salinas. Designed and built from scratch with HTML &amp; CSS.
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
