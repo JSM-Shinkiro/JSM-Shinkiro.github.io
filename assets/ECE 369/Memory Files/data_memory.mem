@@ -1,0 +1,7 @@
+memory[0] <= 32'h9;
+memory[1] <= 32'h8;
+memory[2] <= 32'h7;
+memory[3] <= 32'h6;
+memory[4] <= 32'h0;
+memory[5] <= 32'h0;
+memory[6] <= 32'h0;
